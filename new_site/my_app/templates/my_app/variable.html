@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>VARIABLE.HTML<h1>
+    {% comment %} Filter Docs : https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#built-in-filter-reference {% endcomment %}
+    <h2>
+        <ul>
+            {% for num in sim_list %}
+            <li>{{num}}</li>
+            {%endfor%}
+        </ul>
+    </h2>
+    <h3>
+        <ol type=i>
+            {% for key,value in sim_dict.items %}
+            <li>{{key}} : {{value}}</li>
+            {%endfor%}
+    </h3>
+    
+    {% if user_logged_in and vip_access %}
+        <h2>Welcome {{first_name | lower | capfirst}} {{last_name | lower | capfirst}}.</h2>
+        <h3>You are logged in as a premium user and can enjoy all the features.</h3>
+    {% elif user_logged_in %}
+        <h2>Welcome {{first_name | lower | capfirst}} {{last_name | lower | capfirst}}.</h2>
+        <h3>You are logged in.</h3>
+    {% else %}
+        <h2>Kindly Log in.</h2>
+    {% endif %}
+</body>
+</html>

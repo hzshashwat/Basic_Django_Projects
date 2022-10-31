@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Example HTML Template Attached</h1>
+    <h2>
+        <a href="{% url 'my_app:variable' %}">Login Here</a>
+        <br>
+        {% load static %}
+        <img src="{% static 'my_app/car.gif' %}" alt="Fucking Drifting">
+        <br>
+        <img src="{% static 'car2.jpg' %}" alt="Lambo" height=200 width=400> 
+    </h2>
+</body>
+</html>
