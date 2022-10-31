@@ -1,0 +1,12 @@
+body {
+    background-color:aqua;
+    color: blueviolet;
+}
+
+.myform {
+    border : 5px dashed rgb(140, 0, 255);
+}
+
+.myform2 {
+    border : 2px dashed rgb(206, 55, 55);
+}
