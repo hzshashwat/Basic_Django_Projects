@@ -43,11 +43,11 @@ class BookInstance(models.Model):
     id = models.UUIDField(primary_key=True, default = uuid.uuid4, editable = False)
     book = models.ForeignKey('Book', on_delete = models.RESTRICT)
     imprint = models.CharField(max_length=200)
-    due_back = models.DateField(null= True, black = True)
+    due_back = models.DateField(null= True, blank = True)
     LOAN_STATUS = (
         ('m', 'Maintenance'),
-        ('o', 'On Load')
-        ('a', 'Available')
+        ('o', 'On Load'),
+        ('a', 'Available'),
         ('r', 'Reserved')
     )
     status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default = 'm')
