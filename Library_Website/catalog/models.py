@@ -12,7 +12,7 @@ class Genre(models.Model):
 class Language(models.Model):
     name = models.CharField(max_length=200)
     def __str__(self):
-        self.name
+        return self.name
 
 class Author(models.Model):
     first_name = models.CharField(max_length = 200)
@@ -24,6 +24,9 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         return reverse("author_detail", kwargs={"pk": self.pk})
+    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 class Book(models.Model):
     title = models.CharField(max_length = 200)
@@ -46,7 +49,7 @@ class BookInstance(models.Model):
     due_back = models.DateField(null= True, blank = True)
     LOAN_STATUS = (
         ('m', 'Maintenance'),
-        ('o', 'On Load'),
+        ('o', 'On Loan'),
         ('a', 'Available'),
         ('r', 'Reserved')
     )
