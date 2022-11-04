@@ -22,3 +22,6 @@ class BookCreate(CreateView):
 
 class BookDetail(DetailView):
     model = Book
+
+def my_view(request):
+    return render(request, 'catalog/my_view.html')
