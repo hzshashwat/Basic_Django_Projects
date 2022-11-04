@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Author, Genre, Language, Book, BookInstance
+from django.views.generic import CreateView
 
 # Create your views here.
 def index(request):
@@ -14,3 +15,8 @@ def index(request):
     }
 
     return render(request, 'catalog/index.html', context=context)
+
+class BookCreate(CreateView):
+    model = Book
+    fields = '__all__'
+    
