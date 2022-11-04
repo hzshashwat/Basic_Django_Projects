@@ -5,7 +5,7 @@ from .models import Author, Genre, Language, Book, BookInstance
 def index(request):
     num_books = Book.objects.all().count()
     num_instances = BookInstance.objects.all().count()
-    num_instances_avail = BookInstance.objects.filter(status___exact='a').count()
+    num_instances_avail = BookInstance.objects.filter(status__exact='a').count()
 
     context = {
         'num_books' : num_books,
@@ -13,4 +13,4 @@ def index(request):
         'num_instances_avail' : num_instances_avail
     }
 
-    return render(request, '/catalog/index.html', context=context)
+    return render(request, 'catalog/index.html', context=context)
